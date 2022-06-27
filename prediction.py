@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 import seaborn as sn
 import numpy as np
 import pandas as pd
-print( ' Running')
+
 def make_predictions(pa):
 
     df = pd.read_csv('Data/features_30_sec.csv')

@@ -17,7 +17,6 @@ def allowed_file(filename):
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
-    # check if the post request has the file part
             f = request.files['file']
             if f.filename == "":
                 d="unSuccessfully submitted"
@@ -27,8 +26,8 @@ def submit():
                 return make_response(jsonify(d), 400)
             else:
                 full_filename = secure_filename(f.filename)
-                print(prediction.make_predictions(f)[0])
-                d="Successfully submitted"+str(f.filename)
+                name = prediction.make_predictions(f)[0]
+                d="Successfully submitted "+str(name)
                 return make_response(jsonify(d), 200)
 
                 
