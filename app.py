@@ -4,7 +4,7 @@ import prediction
 
 app = Flask(__name__)
 
-ALLOWED_EXTENSIONS = {'wav'}
+ALLOWED_EXTENSIONS = {'wav','x-wav'}
 
 @app.route('/')
 def hello():
@@ -24,8 +24,9 @@ def submit():
         mesg="Successfull",), 400)
             if not allowed_file(f.filename):
                 d="unSuccessfully submitted not allowed"
+                print(f.filename)
                 return make_response(jsonify(status=False,
-        mesg="Unsuccessfull"), 400)
+        mesg="Un  successfull"+str(f.filename)), 400)
             else:
                 full_filename = secure_filename(f.filename)
                 name = prediction.make_predictions(f)[0]
