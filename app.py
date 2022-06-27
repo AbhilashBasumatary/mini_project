@@ -29,6 +29,7 @@ def submit():
         # mesg="Un   successfull"+str(f.filename)), 400)
             else:
                 full_filename = secure_filename(f.filename)
+                print("File type " + str(f.mimetype))
                 name = prediction.make_predictions(f)[0]
                 d="Successfully submitted "+str(name)
                 return make_response(jsonify(status=True,
