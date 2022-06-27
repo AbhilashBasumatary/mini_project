@@ -20,7 +20,7 @@ librosa==0.7.2
 llvmlite==0.38.1
 MarkupSafe==2.1.1
 matplotlib==3.5
-numba==0.55.2
+numba==0.48
 numpy==1.19.3
 packaging==21.3
 pandas==1.4.3
