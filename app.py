@@ -22,10 +22,10 @@ def submit():
                 d="unSuccessfully submitted"
                 return make_response(jsonify(status=False,
         mesg="Successfull",), 400)
-            if not allowed_file(f.filename):
-                d="unSuccessfully submitted"
-                return make_response(jsonify(status=False,
-        mesg="Unsuccessfull"), 400)
+        #     if not allowed_file(f.filename):
+        #         d="unSuccessfully submitted"
+        #         return make_response(jsonify(status=False,
+        # mesg="Unsuccessfull"), 400)
             else:
                 full_filename = secure_filename(f.filename)
                 name = prediction.make_predictions(f)[0]
