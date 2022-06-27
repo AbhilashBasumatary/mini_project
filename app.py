@@ -19,13 +19,13 @@ def submit():
     if request.method == 'POST':
             f = request.files['file']
             if f.filename == "":
-                d="unSuccessfully submitted"
+                d="unSuccessfully submitted no file name"
                 return make_response(jsonify(status=False,
         mesg="Successfull",), 400)
-        #     if not allowed_file(f.filename):
-        #         d="unSuccessfully submitted"
-        #         return make_response(jsonify(status=False,
-        # mesg="Unsuccessfull"), 400)
+            if not allowed_file(f.filename):
+                d="unSuccessfully submitted not allowed"
+                return make_response(jsonify(status=False,
+        mesg="Unsuccessfull"), 400)
             else:
                 full_filename = secure_filename(f.filename)
                 name = prediction.make_predictions(f)[0]
